@@ -1,0 +1,38 @@
+<h1><%= title("Installation") -%></h1>
+
+<p>Currently there are loggers available for Irssi and Eggdrop.</p>
+  
+<h2>Eggdrop</h2>
+
+<p>Eggdrop logger made by JaTu is available at <%= link_to(h( "http://opensource.hqcodeshop.com/eggdrop/irc-urls/"), "http://opensource.hqcodeshop.com/eggdrop/irc-urls/") %>.</p>
+
+<h2>Irssi</h2>
+<p>Here are few steps how to install IRC-URLs client for irssi.</p>
+
+<div class="infobox">
+  <h2>Step 1 - Set correct network names</h2>
+  <p>To be able to log urls from multiple IRC networks, we expect that your client is set up to use correct network names. Networks can be set up easily using /network -command.</p>
+  <p><kbd>/network add &lt;network name&gt;</kbd></p>
+  <p><kbd>/connect -network &lt;network name&gt; &lt;server address&gt;</kbd></p>
+  <p>After connecting to server you should see human readable network name in your statusbar (ex. IRCnet or EFnet). Dont worry about capitalization. We handle network names as case insensitive.</p>
+  <p>There's a good <a href="http://irssi.org/documentation/startup">tutorial</a> available on the irssi site  with more advanced set up.</p>
+</div>
+<div class="infobox">
+  <h2>Step 2 - Download client</h2>
+  <p>Download irssi script via github, <a href="http://cloud.github.com/downloads/hannu/irc-urls-client/ircurls_client.pl">http://cloud.github.com/downloads/hannu/irc-urls-client/ircurls_client.pl</a> and put it to your <var>~/.irssi/scripts/</var> directory.</p>
+</div>
+<div class="infobox">
+  <h2>Step 3 - Run client</h2>
+  <p>To load the script, type (in irssi!)</p>
+  <p> <kbd>/run ircurls_client.pl</kbd></p>
+  <p>Also, you need to set up client key to identify yourself with the following command:</p>
+  <p><kbd>/set ircurls_client_key <%= current_user.client_key rescue "&lt;client key&gt;" %></kbd></p>
+  <p class="warning">Note: you must have perl support built in to your irssi</p>
+  </p>
+</div>
+<div class="infobox">
+  <h2>Step 4 - Set channel trackings</h2>
+  <p>You can configure your channel tracking on your <%= (user_signed_in? ? link_to("trackings page", trackings_path): "trackings page") %>.</p>
+  <p class="warning">Note: channels only appear after an URL has been mentioned on the channel.</p>
+</div>
+<%= link_to "Back to front page", root_path %>

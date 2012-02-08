@@ -1,0 +1,19 @@
+.occurrence{:class => is_private?(grid_occurrence.url) && "private"}
+  - if grid_occurrence.url.is_a?(VideoUrl)
+    .thumb.embed{:style => "background-image:url('#{grid_occurrence.url.thumbnail(:preview)}')"}
+      .count= grid_occurrence.count
+      %span.video-url= grid_occurrence.url.content
+      = link_to grid_occurrence.url.title, grid_occurrence.url.url, {:class => 'video'}
+  - elsif grid_occurrence.url.is_a?(ImageUrl)
+    .thumb{:style => "background-image:url('#{grid_occurrence.url.thumbnail(:preview)}')"}
+      .count= grid_occurrence.count
+      = link_to 'Show image', grid_occurrence.url.url, {:class => 'image'}
+  %h2.title= link_to truncate(nice_title(grid_occurrence.url), :length => 20), grid_occurrence.url.url
+  .tooltip
+    %h2
+      = image_tag("silk/#{grid_occurrence.url.is_a?(ImageUrl) ? 'picture' : 'film'}.png", {:class => 'icon'})
+      = grid_occurrence.url.title
+    %p.url= grid_occurrence.url.url
+    %p.info
+      Latest post
+      %strong= js_timestamp(grid_occurrence.newest_occurrence.to_datetime)

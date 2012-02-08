@@ -1,0 +1,13 @@
+- if params[:search]
+  .group
+    %p
+      %strong= pluralize(@occurrences.total_entries, "result")
+      for
+      %strong= params[:search]
+      —
+      = link_to "clear search", create_occurrence_hash(params.merge(:search => nil))
+#searchcontainer
+  = form_tag '', :method => :get do
+    = text_field_tag 'search', params[:search]
+    = submit_button({:class => "primary"}) do
+      = image_tag("silk/magnifier.png", :alt => "Search")

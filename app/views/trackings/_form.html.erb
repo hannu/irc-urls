@@ -1,0 +1,9 @@
+<% form_tag tracking_path(tracking), :method => :put do -%>
+  <%= hidden_field(:tracking, :publicity, :value => value) %>
+  <%= submit_button do
+    ((value == 'private' ? image_tag("silk/lock.png", :alt => "") : "") +
+    (value == 'public' ? image_tag("silk/world.png", :alt => "") : "") +
+    (value == 'deactivate' ? image_tag("silk/stop.png", :alt => "") : "") +
+    button_text(value).capitalize).html_safe
+  end -%>
+<% end -%>

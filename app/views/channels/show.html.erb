@@ -1,0 +1,22 @@
+<h1>Channel <%= @channel.name -%> at <%= link_to @channel.network.name, @channel.network -%></h1>
+<%- title("Channel #{@channel.name} at #{@channel.network.name}") -%>
+
+<div class="infobox">
+  <h2>Statistics</h2>
+  <dl>
+    <dt>Public URLs<dt>
+    <dd>
+      <%= image_tag('silk/calendar_view_week.png') -%> Last 24h <b><%= @channel.occurrences.only_public.time_scope('24hours').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calendar_view_week.png') -%> Last week <b><%= @channel.occurrences.only_public.time_scope('7days').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calendar_view_month.png') -%> Last month <b><%= @channel.occurrences.only_public.time_scope('30days').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calculator.png') -%> Total <b><%= @channel.occurrences.only_public.count -%></b>
+    </dd>
+    <dd><%= link_to 'Show recent URLs', recent_network_channel_occurrences_path(@channel.network, @channel) -%></dd>
+  </dl>
+</div>

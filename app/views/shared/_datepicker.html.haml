@@ -1,0 +1,8 @@
+.group
+  = image_tag "silk/time.png"
+  = link_to create_occurrence_hash(params.merge(:date => (@date - 1.day ))), :class => "img button" do
+    = image_tag "silk/control_rewind_blue.png", :alt => "Previous day"
+  = form_tag '', :method => :get do
+    = text_field_tag 'date', (params[:date] || Time.now.strftime("%Y-%m-%d")), :id => 'datepicker'
+  = link_to create_occurrence_hash(params.merge(:date => (@date + 1.day ))), :class => "img button" do
+    = image_tag "silk/control_fastforward_blue.png", :alt => "Next day"

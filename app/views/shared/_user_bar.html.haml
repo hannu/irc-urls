@@ -1,0 +1,13 @@
+= image_tag 'silk/user.png', :class => 'icon'
+- if user_signed_in?
+  Logged in as
+  = link_to current_user.login, account_path
+  (
+  = link_to 'Sign out', destroy_user_session_path
+  )
+- else
+  = link_to "Not logged in", user_session_path
+  —
+  = link_to "Sign in", new_user_session_path, :title => "Login"
+  \/
+  = link_to "Sign up", new_user_registration_path, :title => "Create an account"

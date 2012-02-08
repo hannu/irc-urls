@@ -1,0 +1,9 @@
+<h1><%= title("Channels in #{@network.name}") -%></h1>
+<div class="infobox">
+  <h2>Channels</h2>
+  <ul>
+    <%- @network.public_channels.each do |channel| %>
+      <li><%= link_to channel.name, network_channel_path(@network, channel) %></li>
+    <%- end -%>
+  </ul>
+</div>

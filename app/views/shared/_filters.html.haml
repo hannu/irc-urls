@@ -1,0 +1,22 @@
+#filters
+  - if params[:action].to_s.downcase == 'index'
+    = render :partial => 'shared/interval_options'
+  - else
+    = render :partial => "shared/datepicker"
+  - if @show_view_options
+    = render :partial => 'shared/view_options'
+  - if @network && !params[:channel_id]
+    .group
+      %p
+        Showing all channels at
+        %strong #{@network.name}
+        —
+        = link_to "show all", create_occurrence_hash(params.merge(:network_id => nil))
+  - if params[:channel_id]
+    .group
+      %p
+        Showing
+        %strong= @channel.name rescue Channel.real_name(params[:channel_id])
+        —
+        = link_to "show_all", create_occurrence_hash(params.merge(:channel_id => nil, :network_id => nil))
+  = render :partial => "shared/search"

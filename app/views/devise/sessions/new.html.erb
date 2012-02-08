@@ -1,0 +1,25 @@
+<h1><%= title("Sign in") -%></h1>
+<% form_for resource_name, resource, :url => session_path(resource_name) do |form| -%>
+<fieldset>
+  <h2>Please enter your email or login name and password</h2>
+  <div class="field">
+    <%= form.label 'email or login' %>
+    <%= form.text_field :email %>  
+  </div>
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div class="field">
+    <%= form.label :remember_me %>
+    <%= form.check_box :remember_me %>
+  </div>
+  <div class="buttons"><%= submit_button({:class => 'primary'}) do 
+      image_tag("silk/tick.png", :alt => "") +
+      'Sign in' 
+    end -%>
+  </div>
+</fieldset>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

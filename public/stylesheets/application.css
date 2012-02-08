@@ -1,0 +1,633 @@
+body {
+  font: 0.9em "Trebuchet MS", Arial, Sans-Serif;
+  color: #333;
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 1.5em;
+  color: #025293;
+}
+h2 {
+  font-size: 1.1em;
+  color: #222;
+}
+a {
+  color: #025293;
+}
+a:hover {
+  color:#0173CE;
+}
+a.private {
+  padding-right: 14px;
+  background: url(/images/silk/lock_sm.png) no-repeat center right;
+  border-bottom: 1px solid #FF9933;
+  text-decoration: none;
+}
+
+#hat {
+  background: #2b3640 url(/images/header_bg.png) repeat-x;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #748796;
+  text-align: right;
+}
+#hat a img {
+  border: none;
+  position: absolute;
+  top: 10px;
+  left: 27px;
+}
+#hat span {
+  text-align: right;
+  position: relative;
+  top: 20px;
+  padding: 25px 20px 0 30px;
+  font-size: 0.8em;
+  color: #e3e6e8;
+}
+#hat span a {
+  text-decoration: none;
+  color: #7aabd3;
+  font-weight: bold;
+}
+#hat span a:hover {
+  color: #dcf0fa;
+}
+
+nav {
+  background-color: #586875;
+  width: 100%;
+  margin: 0;
+  padding-top: 4px;
+  float: left;
+  clear: both;
+}
+ul.tabs, ul.categories {
+  margin: 0;
+  float: left;
+  margin-left: 25px;
+  padding: 0;
+}
+ul.tabs li, ul.categories li {
+  list-style: none;
+  margin: 0;
+  display: inline;
+}
+ul.tabs li a {
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  border-radius: 5px 5px 0 0;
+  color: #dcf0fa;
+  padding: 4px 1em;
+  margin-right: 5px;
+  background: #7a8b99;
+  text-decoration: none;
+  display: block;
+  float: left;
+}
+ul.tabs li a.current {
+  font-weight: bold;
+  color: #2b3640;
+  background: #e3e6e8;
+}
+ul.categories li a {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #dcf0fa;
+  background: transparent;
+  text-decoration: none;
+  padding: 1px 0.5em;
+  margin-right: 5px;
+}
+ul.categories li a:hover,
+ul.categories li a.current {
+  background: #7a8b99;
+}
+#filters {
+  background-color: #e3e6e8;
+  border-bottom: 1px solid #ced4d9;
+  width: 100%;
+  float: left;
+  clear: both;
+  padding-top: 0.6em;
+  height: 32px;
+}
+#filters .group {
+  padding-left: 30px;
+  font-size: 0.8em;
+}
+.group p {
+  margin: 0;
+  line-height: 25px;
+}
+.group img {
+  float: left;
+  margin: 4px 10px 0 0;
+}
+.group form {
+  display: inline;
+}
+.group input[type=text] {
+  border: 1px solid #7aabd3;
+  background: #fff url(/images/search_bg.png) repeat-x;
+  padding: 0 0.5em;
+  height: 22px;
+  line-height: 22px;
+  font-size: 1.3em;
+  color: #666;
+  width: 120px;
+  float: left;
+}
+#filters ul {
+  margin: 0;
+  padding-left: 0px;
+  list-style: none;
+  float: left;
+}
+#filters ul li {
+  width: 2.5em;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+#filters button, 
+#filters a.button, #filters ul li a {
+  text-align: center; 
+  border-color: #f9f9f9 #748796 #748796 #f9f9f9;
+  margin: 0;
+  font-size: 1em;
+}
+#filters button {
+  padding: 0;
+}
+#filters a.button {
+  padding: 3px;
+  height: 16px;
+  line-height: 16px;
+}
+#filters ul li a {
+  display: block;
+  line-height: 22px;
+}
+#filters button, 
+#filters a.button {
+  margin: 0 3px;
+  float: left;
+}
+#filters a.button img,
+#filters button img {
+  float: left;
+  margin: 0 2px 0 0;
+}
+#filters a.img.button img {
+  margin: 0;
+}
+#filters button:hover, 
+#filters a.button:hover {
+  color: #1a318b;
+  border-color: #7AABD3;
+}
+#filters ul li.active, #filters ul li:active {
+  background: #c5e8f8 url(/images/button_bg_active.png) repeat-x;
+}
+#filters ul li a.imgbutton {
+  text-indent: -9999px;
+  background-position: center center;
+}
+#filters ul li a#listbutton {
+  background: url(/images/button_list.png) no-repeat;
+}
+#filters ul li a#gridbutton {
+  background: url(/images/button_grid.png) no-repeat;
+}
+#filters ul li a#listbutton.current {
+  background: url(/images/button_list_active.png) no-repeat;
+}
+#filters ul li a#gridbutton.current {
+  background: url(/images/button_grid_active.png) no-repeat;
+}
+#searchcontainer {
+  padding: 0 20px 0 0;
+  float: right;
+}
+#searchcontainer input[type=text] {
+  border: 1px solid #7aabd3;
+  background: #fff url(/images/search_bg.png) repeat-x;
+  padding: 0 0.3em;
+  height: 22px;
+  font-size: 1.04em;
+  color: #666;
+  float: left;
+}
+#searchcontainer button {
+  position: relative;
+  top: 1px;
+  float: left;
+  height: 22px;
+  padding: 0;
+  margin: 0 0 0 3px;
+}
+#searchcontainer button img {
+  margin: 2px;
+}
+.icon {
+  margin-right: 7px;
+  border: none;
+  vertical-align: middle;
+}
+.pagination {
+  clear: both;
+  margin-top: 3em;
+}
+#content {
+  margin: 0;
+  padding: 10px 20px 10px 25px;
+  clear: both;
+}
+
+footer {
+  padding: 10px 0 0 0;
+  border-top: 1px solid #586875;
+  margin: 20px 20px 20px 25px;
+  color: #586875;
+  font-size: 80%;
+  clear: both;
+}
+.listview .occurrence {
+  clear: both;
+  margin-bottom: 1.25em;
+  min-width: 700px;
+  padding-left: 20px;
+}
+.listview .occurrence h2 {
+  font-size: 1.3em;
+  margin: 0;
+  overflow: hidden;
+  display: inline;
+}
+.listview .private h2 {
+  padding-right: 14px;
+  background: #fff url(/images/silk/lock_sm.png) no-repeat top right;
+}
+.listview .occurrence p {
+  margin: 0;
+  padding: 0;
+}
+.listview .occurrence h2 a {
+  color: #025293;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.listview .occurrence .url a {
+  text-decoration: none;
+  font-size: 0.8em;
+  color: #7a8b99;
+}
+.listview .occurrence .info {
+  text-decoration: none;
+  margin-top: 5px;
+  font-size: 0.8em;
+  color: #56636E;
+}
+.top .occurrence {
+  padding-left: 60px;
+}
+.listview .occurrence .count {
+  color: #FFF;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 2em;
+  float: left;
+  width: 45px;
+  padding: 0;
+  margin: 0 15px 15px -60px;
+  background: #70a4cf url(/images/points_bg.png) center center;
+  text-align: center;
+  -moz-border-radius: 7px 0 0 7px;
+  -webkit-border-radius: 7px 0 0 7px;
+  border-radius: 7px 0 0 7px;
+}
+.listview .occurrence .smallthumb {
+  border: 1px solid #afb9c2;
+  float: left;
+  margin: 0 10px 20px 0;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.listview .occurrence .smallthumb a {
+  display: block;
+  border: 2px solid #fff;
+  /* Actual thumbnail images are 80x80px wide, 
+   * these values must be 2px smaller for the borders to work */
+  width: 78px;
+  min-height: 78px;
+  height: 78px;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  text-indent: -9999px;
+}
+.listview .occurrence .smallthumb a.image {
+  background-image: url(/images/corner_image.png);
+}
+.listview .occurrence .smallthumb a.video {
+  background-image: url(/images/corner_video.png);
+}
+span.video-url {
+  display:none;
+}
+.gridview .occurrence {
+  float: left;
+  margin: 0 20px 20px 0;
+}
+.gridview .occurrence .count {
+  color: #FFF;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 0 0.3em;
+  margin: 0;
+  float: left;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  background: #70a4cf url(/images/points_bg.png) center center;
+  text-align: center;
+  -moz-border-radius: 0 0 7px 0;
+  -webkit-border-radius: 0 0 7px 0;
+  border-radius: 0 0 7px 0;
+}
+.gridview .occurrence .thumb {
+  border: 1px solid #afb9c2;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gridview .occurrence .title {
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: 5px;
+  width: 138px;
+  clear: both;
+}
+.gridview .private .title {
+  padding-left: 8px;
+  background: transparent url(/images/silk/lock_sm.png) no-repeat center left;
+}
+.gridview .occurrence .title a {
+  text-decoration: none;
+  color: #025293;
+  font-weight: bold;
+}
+.gridview .occurrence .thumb a {
+  display: block;
+  border: 2px solid #fff;
+  /* Actual thumbnail images are 140x140px wide, 
+   * these values must be 2px smaller for the borders to work */
+  width: 138px;
+  min-height: 138px;
+  height: 138px;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  text-indent: -9999px;
+}
+.gridview .occurrence .thumb a.image {
+  background-image: url(/images/corner_image.png);
+}
+.gridview .occurrence .thumb a.video {
+  background-image: url(/images/corner_video.png);
+}
+.tooltip {
+  display: none;
+}
+
+#tooltip {
+  position: absolute;
+  z-index: 3000;
+  border: 1px solid #666;
+  background-color: #eee;
+  padding: 5px;
+  opacity: 0.85;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px;
+}
+#tooltip div {
+	margin: 0;
+}
+#tooltip p {
+  margin: 0;
+  padding: 0;
+}
+#tooltip h2 {
+	font-size: 1.1em;
+  color: #025293;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+}
+#tooltip .url {
+  text-decoration: none;
+  font-size: 0.8em;
+  color: #7a8b99;
+}
+#tooltip .info {
+  text-decoration: none;
+  margin-top: 5px;
+  font-size: 0.8em;
+  color: #56636E;
+}
+
+/* Help page styles */
+
+kbd {
+  background-color: #000;
+  padding: 0.3em;
+  line-height: 1.6em;
+  color: #FFF;
+  font-size: 110%;
+}
+
+/* Form styles */
+label, button, input[type=submit], input[type=image] {cursor: pointer;}
+
+#content fieldset,
+#content .infobox {
+  clear: both;
+  width: 500px;
+  border: 1px solid #7AABD3;
+  background-color: #f3f3ff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 1em 0 1em 20px;
+  padding: 0.5em 3em 0.5em 0.5em;
+}
+#content fieldset h1,
+#content .infobox h1 {
+  margin: 0.5em 0 1em 20px;
+}
+#content fieldset h2,
+#content .infobox h2 {
+  margin: 1em 0 1em 20px;
+}
+
+#content .infobox dt {
+  margin-bottom: 0.2em;
+  color: #000;
+}
+#content .infobox dd {
+  margin-bottom: 0.3em;
+}
+#content fieldset p,
+#content .infobox p,
+#content .infobox dl,
+#content .infobox pre {
+  color: #444;
+  padding-left: 50px;
+  margin: 1em 0 1em;
+  clear: both;
+}
+#content fieldset .field,
+#content fieldset .buttons,
+#content .infobox .field,
+#content .infobox .buttons {
+  margin: 0 0 1.5em;
+  padding-left: 150px;
+  clear: both;
+}
+#content fieldset .buttons,
+#content .infobox .buttons {
+  float: left;
+}
+#content fieldset .field label {
+  display: inline;
+  float: left;
+  width: 140px;
+  margin: 3px 0 3px -150px;
+  text-align: right;
+  color: #000;
+}
+#content fieldset .field input[type=text],
+#content fieldset .field input[type=password],
+#content fieldset .field textarea,
+#content fieldset .field select {
+  margin: 0;
+  vertical-align: bottom;
+  padding: 3px;
+  border: 1px solid #888;
+}
+#content fieldset .field input[type=checkbox] {
+  margin: 6px 0;
+}
+#content fieldset .field p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75em;
+  color: #888;
+}
+
+/* Tracking page styles */
+
+#trackings .infobox {
+  width: 800px;
+}
+#trackings .infobox table {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 1em 0 1em 20px;
+  padding: 1em 0;
+}
+thead tr th {
+  text-align: left;
+}
+tbody tr.disabled {background-color: #dfdfdf;}
+tbody tr.private {background-color: #F5FFAF;}
+
+tbody tr td,
+thead tr th {
+  padding: 4px 10px;
+  margin: 0;
+}
+td.smalltext {
+  font-size: 80%;
+  color: #666;
+}
+
+/* BUTTONS
+ * modified from 
+ * http://particletree.com/features/rediscovering-the-button-element/
+ */ 
+
+.buttons a, button, a.button {
+  margin: 0 7px 0 0;
+  font: 0.9em "Trebuchet MS", Arial, Sans-Serif;
+  line-height: 1.2em;
+  border-color: #dcc #877 #877 #dcc;
+}
+.buttons a, a.button {
+  padding: 8px 12px 7px 9px; /* Links */
+}
+.buttons a, button, a.button, #filters ul li {
+  background: #dee1e2 url(/images/button_bg.png) repeat-x;
+}
+.buttons a, .buttons button {
+  float: left;
+}
+.buttons a, button, a.button, #filters ul li a {
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #403e46;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.button a.primary, button.primary, a.button.primary {
+  font-weight: bold;
+}
+.buttons a:hover, button:hover, a.button:hover, #filters ul li a:hover {
+  color: #1a318b;
+  border-color: #7AABD3;
+}
+.buttons a:active, button:active, a.button:active,
+#filters ul li.active a, #filters ul li a:active {
+  background: #c5e8f8 url(/images/button_bg_active.png) repeat-x;
+  color: #1a318b;
+  border-color: #748796 #f9f9f9 #f9f9f9 #748796;
+}
+button img, .buttons a img, a.button img {
+  margin:0 6px -3px 0;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+}
+
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px; /* IE6 */
+}
+button[type] {
+  padding:5px 10px 5px 7px; /* Firefox */
+  line-height:17px; /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px; /* IE7 */
+}
+

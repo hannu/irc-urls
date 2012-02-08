@@ -1,0 +1,21 @@
+<h1><%= title("Network #{@network.name}") -%></h1>
+
+<div class="infobox">
+  <h2>Statistics</h2>
+  <dl>
+    <dt>Public URLs<dt>
+    <dd>
+      <%= image_tag('silk/calendar_view_week.png') -%> Last 24h <b><%= @network.occurrences.only_public.time_scope('24hours').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calendar_view_week.png') -%> Last week <b><%= @network.occurrences.only_public.time_scope('7days').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calendar_view_month.png') -%> Last month <b><%= @network.occurrences.only_public.time_scope('30days').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calculator.png') -%> Total <b><%= @network.occurrences.only_public.count -%></b>
+    </dd>
+    <dd><%= link_to 'Show recent URLs', recent_network_occurrences_path(@network) -%></dd>
+  </dl>
+</div>

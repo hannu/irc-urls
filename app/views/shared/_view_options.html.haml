@@ -1,0 +1,7 @@
+.group
+  = image_tag "silk/eye.png", :alt => "View", :title => "View"
+  %ul
+    %li{:class => ("active" if params[:viewtype] != "list")}
+      = link_to "Grid view",  params.merge(:viewtype => nil, :page => nil), {:class => "current imgbutton", :id => "gridbutton"}
+    %li{:class => ("active" if params[:viewtype] == "list")}
+      = link_to "List", params.merge(:viewtype => 'list', :page => nil), {:class => "current imgbutton", :id => "listbutton"}

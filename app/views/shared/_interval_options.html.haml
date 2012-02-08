@@ -1,0 +1,13 @@
+.group
+  = image_tag "silk/time.png"
+  %ul
+    %li{:class => ("active" if interval == 1.hour)}
+      = link_to '1h', create_occurrence_hash(params.merge(:interval => '1hour', :page => nil))
+    %li{:class => ("active" if interval == 24.hours)}
+      = link_to '24h', create_occurrence_hash(params.merge(:interval => '24hours', :page => nil)), :class => "active"
+    %li{:class => ("active" if interval == 3.days)}
+      = link_to '3d', create_occurrence_hash(params.merge(:interval => '3days', :page => nil))
+    %li{:class => ("active" if interval == 30.days)}
+      = link_to '30d', create_occurrence_hash(params.merge(:interval => '30days', :page => nil))
+    %li{:class => ("active" if params[:interval] == "alltime")}
+      = link_to 'All', create_occurrence_hash(params.merge(:interval => 'alltime', :page => nil))

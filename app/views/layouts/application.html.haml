@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title #{@title || yield(:title) || "All links from IRC"} - IRC-URLs.net
+    %meta{:charset => "utf-8"}
+    = javascript_include_tag 'head'
+    = stylesheet_link_tag "application", "message_block", "overlay", :cache => true
+    = headjs("jquery", javascript_paths("overlay", "overlay.apple", "jquery.tooltip", "pretty", "application", :cache => true))
+    = analytics
+    = yield :js
+    %link{:rel => "shortcut icon", :href => "/favicon.ico"}
+  %body
+    %header
+      = render :partial => "shared/header"
+      = render :partial => "shared/navigation"
+      = render :partial => "shared/filters" if @show_navigation
+    #content
+      - typecast_flash_messages
+      = message_block :on => [:user]
+      = yield
+    %footer IRC-URLs.net

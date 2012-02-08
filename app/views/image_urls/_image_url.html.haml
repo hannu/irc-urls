@@ -1,0 +1,5 @@
+- unless image_url.url_image.nil?
+  .smallthumb{:style => "background-image:url('#{image_url.url_image.image.url(:thumb)}')"}
+    = link_to "Show iamge", image_url.url, :class => 'image'
+%h2= link_to nice_title(image_url), image_url.url, :class => ('private' if is_private?(image_url))
+%p.url= link_to image_url.url, image_url.url 

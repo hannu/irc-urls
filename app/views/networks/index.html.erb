@@ -1,0 +1,7 @@
+<h1><%= title("Networks") -%></h1>
+
+<%- @networks.each do |network| -%>
+  <%= render :partial => network if network.public_channels.size > 0 %>
+<%- end -%>
+
+

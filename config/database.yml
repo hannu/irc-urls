@@ -1,0 +1,22 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: ircurls_development
+  username: <%= ENV['USER'] %>
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: ircurls_test
+  username: <%= ENV['USER'] %>
+  password:
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: irc-urls-net
+  host: localhost
+  username: irc-urls-net
+  password:

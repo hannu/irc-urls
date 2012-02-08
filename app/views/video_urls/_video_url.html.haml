@@ -1,0 +1,5 @@
+.smallthumb.embed{:style => "background-image:url('#{video_url.thumbnail}')"}
+  %span.video-url= video_url.content
+  = link_to video_url.title, video_url.url, {:class => 'video'}
+%h2= link_to nice_title(video_url), video_url.url, :class => ('private' if is_private?(video_url))
+%p.url= link_to video_url.url, video_url.url

@@ -1,0 +1,11 @@
+.listview
+  .occurrence
+    = render :partial => @urlobj
+.infobox
+  %h2 Latest posts
+  %p.info
+    - @occurrences.each do |occurrence|
+      %strong= js_timestamp(occurrence.created_at)
+      to
+      = link_to occurrence.channel.name, network_channel_occurrences_path(occurrence.channel.network, occurrence.channel), :class => ("private" if is_private?(occurrence))
+      %br

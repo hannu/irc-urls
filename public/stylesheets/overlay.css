@@ -1,0 +1,36 @@
+/* the overlayed element */
+.overlay {
+  /* initially overlay is hidden */
+  display:none;
+
+  /* growing background image */
+  background-image:none;
+
+  /*
+    width after the growing animation finishes
+    height is automatically calculated
+  */
+  width:640px;
+
+  /* some padding to layout nested elements nicely  */
+  padding:28px;
+
+  /* a little styling */
+  font-size:11px;
+}
+
+.overlay object,.overlay iframe {
+  -moz-box-shadow:0 0 90px 5px #000;
+  -webkit-box-shadow: 0 0 90px #000;
+  box-shadow: 0 0 90px #000;
+}
+
+/* default close button positioned on upper right corner */
+.overlay .close {
+  background-image:url(/images/overlay/apple-close.png);
+  position:absolute; left:5px; top:5px;
+  cursor:pointer;
+  height:28px;
+  width:28px;
+  display: none;
+}

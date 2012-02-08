@@ -1,0 +1,2 @@
+%h2= link_to "#{mime_icon(url)}#{nice_title(url)}".html_safe, url.url, :class => ('private' if is_private?(url))
+%p.url= link_to url.url, url.url

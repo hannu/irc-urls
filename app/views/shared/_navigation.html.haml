@@ -1,0 +1,21 @@
+%nav
+  %ul.tabs
+    %li
+      = link_to_unless_current "Most popular #{@media_title}", create_occurrence_hash(params.merge(:action => :index)) do
+        = link_to "Most popular #{@media_title}", create_occurrence_hash(params.merge(:action => :index)), {:class => 'current'}
+    %li
+      = link_to_unless_current "Recent #{@media_title}", create_occurrence_hash(params.merge(:action => :recent, 'interval' => nil, :date => nil)) do
+        = link_to "Recent #{@media_title}", create_occurrence_hash(params.merge(:action => :recent, 'interval' => nil, :date => nil)), {:class => 'current'}
+  %ul.categories
+    %li
+      = link_to_unless_current "All", create_occurrence_hash(params.merge(:controller => "/occurrences", 'viewtype' => nil, :action => params[:action])) do
+        = link_to "All", create_occurrence_hash(params.merge(:controller => "/occurrences", 'viewtype' => nil, :action => params[:action])), {:class => 'current'}
+    %li
+      = link_to_unless_current "Images", create_occurrence_hash(params.merge(:controller => "/image_occurrences", :action => params[:action])) do
+        = link_to "Images", create_occurrence_hash(params.merge(:controller => "/image_occurrences", :action => params[:action])), {:class => 'current'}
+    %li
+      = link_to_unless_current "Videos", create_occurrence_hash(params.merge(:controller => "/video_occurrences", :action => params[:action])) do
+        = link_to "Videos", create_occurrence_hash(params.merge(:controller => "/video_occurrences", :action => params[:action])), {:class => 'current'}
+    %li
+      = link_to_unless_current "All media", create_occurrence_hash(params.merge(:controller => "/media_occurrences", :action => params[:action])) do
+        = link_to "All media", create_occurrence_hash(params.merge(:controller => "/media_occurrences", :action => params[:action])), {:class => 'current'}

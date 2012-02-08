@@ -1,0 +1,3 @@
+class MediaUrl < Url
+  
+end

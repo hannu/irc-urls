@@ -1,0 +1,10 @@
+.occurrence
+  .count= occurrence.count
+  = render :partial => occurrence.url
+  %p.info
+    - if user_signed_in? && occurrence.url.cached?
+      = link_to "Cached", cache_path(occurrence.url.to_param)
+    Latest post
+    %strong= js_timestamp(occurrence.newest_occurrence.to_datetime)
+    —
+    = link_to "View all posts", occurrence.url

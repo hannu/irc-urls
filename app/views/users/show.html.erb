@@ -1,0 +1,96 @@
+<h1><%= title "User #{h(@user.login)}" -%></h1>
+<div class="infobox">
+  <h2>Profile</h2>
+  <dl>
+  <dt>Login<dt><dd><%= h(@user.login) -%></dd>
+  <%- unless @user.name.blank? -%>
+  <dt>Name<dt><dd><%= h(@user.name) -%></dd>
+  <%- end -%>
+  <%- unless @user.birthdate.blank? -%>
+  <dt>Birthday<dt><dd><%= h(@user.birthdate.to_formatted_s(:long)) -%></dd>
+  <%- end -%>
+  <%- unless @user.location.blank? -%>
+  <dt>Location<dt><dd><%= h(@user.location) -%></dd>
+  <%- end -%>
+  <%- unless @user.country.blank? -%>
+  <dt>Country<dt><dd><%= h(@user.country) -%></dd>
+  <%- end -%>
+  <%- unless @user.homepage.blank? -%>
+   <dt>Blog / Homepage<dt><dd><%= link_to h(@user.homepage), h(@user.homepage) -%></dd>
+   <%- end -%>
+  </dl>
+<%- if current_user == @user # Do not show edit link if not current user -%>
+  <p><%= link_to 'Edit profile', edit_user_registration_path -%></p>
+<%- end -%>
+</div>
+
+<%- if current_user == @user #Start of current user check-%>
+<div class="infobox">
+  <h2>Channel trackings</h2>
+  
+  <% if @user.trackings.count > 0 -%>
+  <dl>
+    <dt>Currently tracking<dt>
+    <dd>
+      <%= image_tag('silk/world.png') -%> Public channels <b><%= @user.trackings.only_public.count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/lock.png') -%> Private channels <b><%= @user.trackings.only_private.count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/stop.png') -%> Untracked channels <b><%= @user.trackings.only_untracked.count -%></b>
+    </dd>
+  </dl>
+  <p><%= link_to 'Edit channel trackings', trackings_path %></p>
+  <%- else -%>
+  <p>You do not have any trackings. Read <%= link_to "client installation instructions", :controller => :help, :action => :installation -%> to start track channels.</p>
+  <%- end -%>
+</div>
+<%- end #End of current user check for tracking-%>
+
+<div class="infobox">
+  <h2>Statistics</h2>
+  <dl>
+    <dt>URLs logged<dt>
+    <dd>
+      <%= image_tag('silk/calendar_view_week.png') -%> Last 24h <b><%= @user.occurrences.time_scope('24hours').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calendar_view_week.png') -%> Last week <b><%= @user.occurrences.time_scope('7days').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calendar_view_month.png') -%> Last month <b><%= @user.occurrences.time_scope('30days').count -%></b>
+    </dd>
+    <dd>
+      <%= image_tag('silk/calculator.png') -%> Total <b><%= @user.occurrences.count -%></b>
+    </dd>
+  </dl>
+</div>
+
+<div class="infobox">
+  <h2>Client key</h2>
+  <div id="client_key">
+    <%= render :partial => 'client_key' -%>
+  </div>
+  <% form_tag token_path, :id => "user-token-form" do %>
+    <div class="buttons"><%= submit_button do
+      image_tag("silk/textfield_key.png", :alt => "") + 'Regenerate key'
+    end %>
+    </div>
+  <% end %>
+  <p>Note: You have to update new key in your IRC client</p>
+</div>
+
+<% content_for :js do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#user-token-form").submit(function() {
+        $.post("<%= token_path %>", function(token) {
+          console.log(token);
+          $("#client_key > pre").text(token);
+        }, "json");
+        return false;
+      });
+    })
+  </script>
+<% end%>

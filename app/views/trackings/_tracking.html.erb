@@ -1,0 +1,15 @@
+<tr id="tracking_<%= tracking.id -%>" class="tracking <%= tracking.publicity || 'disabled' -%>">
+  <td class="text"><%= tracking.channel.name %></td>
+  <td class="text"><%= tracking.channel.network.name -%></td>
+  <td class="text"><%= tracking.publicity || "not tracking" -%></td>
+    <td><%= render :partial => 'form', :locals => {:value => 'private', :tracking => tracking} if tracking.publicity.nil? || tracking.publicity == 'public' %></td>
+    <%- if tracking.channel.public_tracking_disabled? -%>
+    <td class="smalltext">
+      Only private tracking<br /> is allowed for this channel
+    <%- else -%>
+    <td>
+    <%= render :partial => 'form', :locals => {:value => 'public', :tracking => tracking} if tracking.publicity.nil? || tracking.publicity == 'private' %>
+    <%- end -%>
+    </td> 
+    <td><%= render :partial => 'form', :locals => {:value => 'deactivate', :tracking => tracking} unless tracking.publicity.nil? %></td>
+</tr>
