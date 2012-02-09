@@ -10,3 +10,5 @@ Source code includes
 * Delayed jobs to process links - modular thumbnailer to support multiple image sites as well as oembed standard
 * RSpec unit tests
 * Irssi-client for automatically send links and client authentication with changeable client key
+
+![screenshot](/hannu/irc-urls/raw/master/screenshot.png)
